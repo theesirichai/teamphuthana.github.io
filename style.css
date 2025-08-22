@@ -15,7 +15,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 h1, h2, h3 {
@@ -58,7 +58,7 @@ header .container {
 .school-logo {
     width: 40px;
     height: 40px;
-    border-radius: 50%; /* เพื่อให้โลโก้เป็นวงกลม */
+    border-radius: 50%;
     margin-right: 10px;
     animation: rotateLogo 10s linear infinite;
 }
@@ -75,10 +75,10 @@ nav ul {
 }
 
 nav li {
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
-/* --- Hero Section - New Styles --- */
+/* --- Hero Section --- */
 .hero-section {
     height: 100vh;
     background-size: cover;
@@ -89,26 +89,26 @@ nav li {
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: background-image 1s ease-in-out; /* เพิ่ม transition เพื่อให้ภาพเปลี่ยนแบบนุ่มนวล */
+    transition: background-image 1s ease-in-out;
 }
 
 .hero-content {
-    background: rgba(255, 255, 255, 0);
+    background: rgba(0, 0, 0, 0.5);
     padding: 2rem 4rem;
     border-radius: 15px;
-    backdrop-filter: blur(0px);
+    backdrop-filter: blur(5px);
     animation: fadeIn 1.5s ease-out;
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     margin-bottom: 0.5rem;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     font-style: italic;
-    color: #000000;
+    color: #b3b3b3;
 }
 
 /* --- Member Profiles --- */
@@ -137,6 +137,7 @@ nav li {
     will-change: transform, box-shadow;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     display: block;
+    min-width: 0;
 }
 
 .member-card:hover {
@@ -178,12 +179,6 @@ nav li {
     font-style: italic;
 }
 
-/* --- Footer --- */
-footer {
-    background-color: #0d0d0d;
-    text-align: center;
-    padding: 2rem 0;
-}
 /* --- Version Section --- */
 .version-section {
     padding: 5rem 0;
@@ -235,12 +230,19 @@ footer {
 }
 
 .version-content .changelog li::before {
-    content: '\2022'; /* Bullet point character */
+    content: '\2022';
     color: #00d4ff;
     font-weight: bold;
     display: inline-block;
     width: 1em;
     margin-left: -1em;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #0d0d0d;
+    text-align: center;
+    padding: 2rem 0;
 }
 
 /* --- Animations --- */
@@ -258,4 +260,38 @@ footer {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* --- Responsive Design for small screens --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    nav li {
+        margin: 0 0.5rem;
+    }
+
+    .hero-content {
+        padding: 1.5rem;
+    }
+
+    .member-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .member-card {
+        max-width: 350px;
+        margin: auto;
+    }
 }

@@ -15,14 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => observer.observe(el));
 
 
-    // โค้ดใหม่สำหรับเปลี่ยนรูปภาพพื้นหลังอัตโนมัติ
+    // โค้ดสำหรับเปลี่ยนรูปภาพพื้นหลังอัตโนมัติ
     const heroSection = document.getElementById('home');
     const images = [
         'picture/g1.jpg',
         'picture/g2.jpg',
         'picture/g3.jpg',
         'picture/g4.jpg',
-        // เพิ่มที่อยู่รูปภาพของคุณที่นี่
     ];
     let currentIndex = 0;
 
